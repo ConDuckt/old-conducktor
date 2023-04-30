@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../models");
+const { User } = require("../../models");
+
+router.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
+
 
 router.post("/signup", async (req, res) => {
     try {
