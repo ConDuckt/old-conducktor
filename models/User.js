@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require("uuid");
 
 class User extends Model {
     checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
+        return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
@@ -57,9 +57,9 @@ User.init(
 module.exports = User;
 
 User.hasMany(Post, {
-    foreignKey: 'user_id'
+    foreignKey: "user_id"
 });
   
 Post.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: "user_id"
 });
