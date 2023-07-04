@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
-const { v4: uuidv4 } = require("uuid");
+const sequelize = require("../config/config");
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -12,10 +11,10 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
         },
         username: {
             type: DataTypes.STRING,
@@ -30,9 +29,9 @@ User.init(
             allowNull: false,
             validate: {
                 notEmpty: true,
-                len: [6],
-            },
-        },
+                len: [8],
+            }
+        }
     },
     {
         hooks: {
@@ -50,16 +49,8 @@ User.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: "user",
+        modelName: "User",
     }
 );
 
 module.exports = User;
-
-User.hasMany(Post, {
-    foreignKey: "user_id"
-});
-  
-Post.belongsTo(User, {
-    foreignKey: "user_id"
-});

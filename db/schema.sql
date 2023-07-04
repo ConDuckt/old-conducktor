@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS blog_db;
+DROP DATABASE IF EXISTS conducktor_db;
 
-CREATE DATABASE blog_db;
+CREATE DATABASE conducktor_db;
 
-USE blog_db;
+USE conducktor_db;
