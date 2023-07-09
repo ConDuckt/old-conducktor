@@ -20,6 +20,6 @@ const loginFormHandler = async function(event) {
     }
   };
   
-  document
+document
     .querySelector("#login-form")
     .addEventListener("submit", loginFormHandler);
