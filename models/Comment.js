@@ -4,15 +4,15 @@ const sequelize = require("../config/config");
 class Comment extends Model {}
 
 Comment.init(
-  {
-    body: {
-      type: DataTypes.STRING,
-      allowNull: false
+    {
+      body: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    },
+    {
+      sequelize
     }
-  },
-  {
-    sequelize
-  }
 );
 
 module.exports = Comment;
