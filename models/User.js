@@ -35,15 +35,25 @@ User.init(
     },
     {
         hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                newUserData.id = uuidv4();
-                return newUserData;
-            },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            // beforeCreate: async (newUserData) => {
+            //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            //     newUserData.id = uuidv4();
+            //     return newUserData;
+            // },
+            async beforeCreate(userData) {
+                userData.password = await bcrypt.hash(userData.password, 10); // Difficulty for hashing password set to 10 being extra secure
+                return userData;
+            }, // Hasing for hashing a updated password
+            // beforeUpdate: async (updatedUserData) => {
+            //     updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            //     return updatedUserData;
+            // },
+            async beforeUpdate(updatedUserData) {
+                if (updatedUserData.password) {
+                    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                }
                 return updatedUserData;
-            },
+            }
         },
         sequelize,
         timestamps: true,
