@@ -52,6 +52,6 @@ Fortunately, there's no CSS to discard or cry over, so switching to Tailwind sho
 
 ## Acknowledgements
 
-As stated above, some code (particularly Handlebars views) was leveraged from coursework.
+As stated above, some code (particularly Handlebars views) was leveraged from coursework. The repo in question is linked [here](https://nu.bootcampcontent.com/NU-Coding-Bootcamp/NU-VIRT-FSF-PT-01-2023-U-LOLC/-/tree/main/00-homework-solutions/14-Main).
 
 Special thanks to [Reid Madock](https://github.com/reidmadock) for figuring out the bcrypt webhook issue.
